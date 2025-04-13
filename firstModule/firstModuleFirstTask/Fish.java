@@ -1,6 +1,6 @@
 package firstModuleFirstTask;
 
-public class Fish extends Animal implements CanBreatheUnderwater {
+public class Fish extends Animal implements LiveInWater {
 
     private int finsCount;
 
