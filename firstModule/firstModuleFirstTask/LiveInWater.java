@@ -1,6 +1,6 @@
 package firstModuleFirstTask;
 
-public interface CanBreatheUnderwater {
+public interface LiveInWater {
 
     void breathingUnderwaterMessage();
 }
