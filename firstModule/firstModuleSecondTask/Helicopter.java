@@ -1,9 +1,14 @@
 package firstModuleSecondTask;
 
-public class Helicopter extends Transport implements HasWheels, HasPropeller, CarriesCargo{
+public class Helicopter extends Transport implements CarriesCargo{
 
-    Helicopter(String model, double maxSpeed, int yearOfManufacture) {
-        super(model, maxSpeed, yearOfManufacture);
+    private final Propeller propeller;
+    private final Wheels wheels;
+
+    Helicopter(String model, int yearOfManufacture) {
+        super(model, yearOfManufacture);
+        this.propeller = new Propeller("TH-446");
+        this.wheels = new Wheels("Roll-Hg");
     }
 
     @Override
@@ -14,15 +19,5 @@ public class Helicopter extends Transport implements HasWheels, HasPropeller, Ca
     @Override
     public void carryLoad() {
         System.out.println("Helicopter-" + getModel() + " is carrying cargo.");
-    }
-
-    @Override
-    public void movePropeller() {
-        System.out.println("Helicopter-" + getModel() + " is moving propeller.");
-    }
-
-    @Override
-    public void driveOnWheels() {
-        System.out.println("Helicopter-" + getModel() + " is driving on the wheels.");
     }
 }

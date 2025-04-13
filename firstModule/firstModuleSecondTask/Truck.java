@@ -1,9 +1,12 @@
 package firstModuleSecondTask;
 
-public class Truck extends Transport implements HasWheels, CarriesCargo{
+public class Truck extends Transport implements CarriesCargo{
 
-    Truck(String model, double maxSpeed, int yearOfManufacture) {
-        super(model, maxSpeed, yearOfManufacture);
+    private final Wheels wheels;
+
+    Truck(String model, int yearOfManufacture) {
+        super(model, yearOfManufacture);
+        this.wheels = new Wheels("Hg-23");
     }
 
     @Override
@@ -14,10 +17,5 @@ public class Truck extends Transport implements HasWheels, CarriesCargo{
     @Override
     public void carryLoad() {
         System.out.println("Truck-" + getModel() + " is carrying cargo.");
-    }
-
-    @Override
-    public void driveOnWheels() {
-        System.out.println("Truck-" + getModel() + " is driving on the wheels.");
     }
 }

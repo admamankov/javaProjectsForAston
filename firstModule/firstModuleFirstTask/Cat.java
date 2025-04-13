@@ -1,24 +1,16 @@
 package firstModuleFirstTask;
 
-public class Cat extends Mammal implements HasCoat {
+public class Cat extends Mammal {
 
     private int whiskers;
+    private Coat coat;
 
-    Cat(String name, int age, double weight, int legsCount, int whiskers) {
-        super(name, age, weight, legsCount);
+    Cat(String name, int age, double weight, int legsCount, int whiskers, Coat coat, Spine spine) {
+        super(name, age, weight, legsCount, spine);
         this.whiskers = whiskers;
+        this.coat = coat;
     }
 
-    public int getWhiskers() {
-        return whiskers;
-    }
 
-    public void setWhiskers(int whiskers) {
-        this.whiskers = whiskers;
-    }
-
-    @Override
-    public void hasCoatMessage() {
-        System.out.println("Has a coat");
-    }
 }
+

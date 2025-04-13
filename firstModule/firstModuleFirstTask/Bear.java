@@ -1,24 +1,11 @@
 package firstModuleFirstTask;
 
-public class Bear extends Mammal implements HasCoat {
+public class Bear extends Mammal {
 
-    String coatColor;
+    private Coat coat;
 
-    Bear(String name, int age, double weight, int legsCount, String coatColor) {
-        super(name, age, weight, legsCount);
-        this.coatColor = coatColor;
-    }
-
-    public String getCoatColor() {
-        return coatColor;
-    }
-
-    public void setCoatColor(String coatColor) {
-        this.coatColor = coatColor;
-    }
-
-    @Override
-    public void hasCoatMessage() {
-        System.out.println("Has a coat");
+    Bear(String name, int age, double weight, int legsCount, Coat coat, Spine spine) {
+        super(name, age, weight, legsCount, spine);
+        this.coat = coat;
     }
 }

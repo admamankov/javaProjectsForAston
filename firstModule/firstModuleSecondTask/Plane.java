@@ -1,9 +1,24 @@
 package firstModuleSecondTask;
 
-public class Plane extends Transport implements HasWheels, HasPropeller, HasWings, CarriesCargo {
+class Wings{
+    private String type;
 
-    Plane(String model, double maxSpeed, int yearOfManufacture) {
-        super(model, maxSpeed, yearOfManufacture);
+     public Wings(String type){
+        this.type = type;
+    }
+}
+
+public class Plane extends Transport implements CarriesCargo {
+
+    private final Wings wing;
+    private final Propeller propeller;
+    private final Wheels wheels;
+
+    Plane(String model, int yearOfManufacture, String wing) {
+        super(model, yearOfManufacture);
+        this.wing = new Wings(wing);
+        this.propeller = new Propeller("Tp-445");
+        this.wheels = new Wheels("Roll-12");
     }
 
     @Override
@@ -12,24 +27,7 @@ public class Plane extends Transport implements HasWheels, HasPropeller, HasWing
     }
 
     @Override
-    public void driveOnWheels() {
-        System.out.println("Plane-" + getModel() + " is using wheels to takes off.");
-    }
-
-    @Override
     public void carryLoad() {
         System.out.println("Plane-" + getModel() + " is carrying cargo.");
-    }
-
-    @Override
-    public void movePropeller() {
-        System.out.println("Plane-" + getModel() + " is moving propeller.");
-
-    }
-
-    @Override
-    public void flyWithWings() {
-        System.out.println("Plane-" + getModel() + " is flying with wings.");
-
     }
 }

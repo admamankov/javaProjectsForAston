@@ -1,9 +1,12 @@
 package firstModuleSecondTask;
 
-public class Boat extends Transport implements HasPropeller, CarriesCargo{
+public class Boat extends Transport implements CarriesCargo{
 
-    Boat(String model, double maxSpeed, int yearOfManufacture) {
-        super(model, maxSpeed, yearOfManufacture);
+    private final Propeller propeller;
+
+    Boat(String model, int yearOfManufacture) {
+        super(model, yearOfManufacture);
+        this.propeller = new Propeller("F-145");
     }
 
     @Override
@@ -16,8 +19,5 @@ public class Boat extends Transport implements HasPropeller, CarriesCargo{
         System.out.println("Boat-" + getModel() + " is carrying cargo.");
     }
 
-    @Override
-    public void movePropeller() {
-        System.out.println("Boat-" + getModel() + " is moving propeller.");
-    }
+
 }

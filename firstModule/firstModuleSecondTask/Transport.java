@@ -2,11 +2,9 @@ package firstModuleSecondTask;
 
 public abstract class Transport {
     private String model;
-    private double maxSpeed;
     private int yearOfManufacture;
 
-    Transport(String model, double maxSpeed, int yearOfManufacture){
-        this.maxSpeed = maxSpeed;
+    Transport(String model, int yearOfManufacture){
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
     }
@@ -16,24 +14,20 @@ public abstract class Transport {
     public String getModel() {
         return model;
     }
+}
 
-    public double getMaxSpeed() {
-        return maxSpeed;
+class Propeller{
+    private String type;
+
+    Propeller(String type){
+        this.type = type;
     }
+}
 
-    public int getYearOfManufacture() {
-        return yearOfManufacture;
-    }
+class Wheels{
+    private String type;
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    public void setYearOfManufacture(int yearOfManufacture) {
-        this.yearOfManufacture = yearOfManufacture;
+    Wheels(String type){
+        this.type = type;
     }
 }
