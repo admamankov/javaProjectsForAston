@@ -1,23 +1,22 @@
 package secondModuleFirstTask;
 
-
 import java.util.Arrays;
 import java.util.Objects;
-
 
 public class CustomArrayList<E> {
     private int size;
     private Object[] data;
-
+    private static final int DEFAULT_CAPACITY = 10;
+    
     public CustomArrayList() {
-        this(10);
+        this(DEFAULT_CAPACITY);
     }
 
     public CustomArrayList(int initCapacity) {
         if (initCapacity > 0) {
             this.data = new Object[initCapacity];
         } else if (initCapacity == 0) {
-            this.data = new Object[10];
+            this.data = new Object[DEFAULT_CAPACITY];
         } else {
             throw new IllegalArgumentException("Illegal capacity: " + initCapacity);
         }
