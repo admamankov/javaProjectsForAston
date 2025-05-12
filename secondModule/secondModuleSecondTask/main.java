@@ -10,19 +10,19 @@ public class main {
 
         List<Student> students = initializeStudents(); // add 2 students with 5 rand books
 
-        students.forEach(student -> {
-            Optional<Integer> result = student.getBooks().stream()
-                    .sorted(Comparator.comparingInt(Book::getPageCount))
-                    .distinct() //  unique books
-                    .filter(book -> book.getYear() > 2000)
-                    .limit(3)
-                    .map(Book::getYear)
-                    .findFirst();
-
-            String output = result.map(year -> "Publication year: " + year)
-                    .orElse("No book found");
-            System.out.println("Result for " + student.getName() + ": " + output);
-        });
+        students.stream()
+        .peek(System.out::println)
+        .flatMap(student -> student.getBooks().stream())
+        .sorted(Comparator.comparingInt(Book::getPageCount))
+        .distinct()
+        .filter(book -> book.getYear() > 2000)
+        .limit(3)
+        .map(Book::getYear)
+        .findFirst()
+        .ifPresentOrElse(
+            year -> System.out.println("Publication year: " + year),
+            () -> System.out.println("No book found")
+        );
     }
 
 
